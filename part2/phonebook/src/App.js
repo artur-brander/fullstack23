@@ -40,7 +40,7 @@ const Error = ({ message }) => {
   )
 }
 
-const PersonForm = ({ newName, newNumber, persons, setNewName, setNewNumber, setPersons, setNotification }) => {
+const PersonForm = ({ newName, newNumber, persons, setNewName, setNewNumber, setPersons, setNotification, setError }) => {
   const addName = (event) => {
     event.preventDefault()
     console.log('Event target:', event.target, 'New name:', newName)
@@ -76,6 +76,14 @@ const PersonForm = ({ newName, newNumber, persons, setNewName, setNewNumber, set
         setNotification(`Added ${newName}`)
         setTimeout(() => {
           setNotification(null)
+        }, 3000)
+      })
+      .catch(error => {
+        console.log(error.response.data.error);
+        
+        setError(`${error.response.data.error}`)
+        setTimeout(() => {
+          setError(null)
         }, 3000)
       })
   }
@@ -186,7 +194,7 @@ const App = () => {
       <PersonForm 
         newName={newName} newNumber={newNumber} persons={persons} 
         setNewName={setNewName} setNewNumber={setNewNumber} setPersons={setPersons}
-        setNotification={setNotification}
+        setNotification={setNotification} setError={setError}
       />
 
       <h2>Numbers</h2>
