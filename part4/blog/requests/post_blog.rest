@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs HTTP/1.1
+Content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZWtzaXoiLCJpZCI6IjYzZmNiMTdkNDU5MjhkYzMyODE1ZjU5YyIsImlhdCI6MTY3NzUwNzgyOX0.42xqqKFrELKv9_LTjhuestetB-oeiIVm0AJyooYPsak
+
+{
+    "title": "Test with token 4",
+    "author": "Artur Branderty",
+    "url": "rock.fi",
+    "likes": 123
+}
